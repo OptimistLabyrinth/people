@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node ./bin/server.js",
     "dev": "nodemon ./bin/server.js",
+    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --config ./jest.config.mjs",
     "lint:check": "npx eslint .",
     "lint:fix": "npx eslint --fix ."
   },
@@ -19,6 +20,8 @@
   "devDependencies": {
     "eslint": "^8.10.0",
     "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-jest": "^26.1.1",
+    "jest": "^27.5.1",
     "prettier": "^2.5.1"
   }
 }
