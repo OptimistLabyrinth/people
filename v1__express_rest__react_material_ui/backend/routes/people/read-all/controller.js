@@ -1,4 +1,4 @@
-// import ReadAllDto from './dto.js'
+import ReadAllRepository from './repository.js'
 import { mysqlConnectionInstance } from '../../../app.js'
 import { debugError } from '../../../modules/logging.js'
 
@@ -6,7 +6,9 @@ async function readAll(req, res) {
   let connection = {}
   try {
     connection = await mysqlConnectionInstance.getConnection()
-    const examplePeople = []
+    const readAllRepository = new ReadAllRepository(connection)
+    const readAllResult = await readAllRepository.readAll()
+    const examplePeople = readAllResult.map((each) => each.toJson())
     res.send({ msg: 'people router index', result: examplePeople })
   } catch (error) {
     debugError(error)

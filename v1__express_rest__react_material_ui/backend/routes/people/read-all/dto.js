@@ -4,12 +4,30 @@ class ReadAllDto {
     this.name = name ?? null
     this.nickname = nickname ?? null
     this.country = country ?? null
-    this.birthday = birthday ?? null
+    this.birthday =
+      birthday === null || birthday === undefined
+        ? null
+        : this.dateToString(birthday)
     this.age = age ?? null
     this.height = height ?? null
     this.weight = weight ?? null
 
+    this.dateToString = this.dateToString.bind(this)
     this.toJson = this.toJson.bind(this)
+  }
+
+  dateToString(date) {
+    const dateBirthday = new Date(date)
+    const year = dateBirthday.getFullYear()
+    let month = dateBirthday.getMonth() + 1
+    if (month < 10) {
+      month = '0' + month
+    }
+    let day = dateBirthday.getDate()
+    if (day < 10) {
+      day = '0' + day
+    }
+    return `${year}-${month}-${day}`
   }
 
   toJson() {
