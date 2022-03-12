@@ -2,6 +2,8 @@ import express from 'express'
 import path from 'path'
 import cookieParser from 'cookie-parser'
 import logger from 'morgan'
+import dotenv from 'dotenv'
+dotenv.config({ path: './.env' })
 
 import { default as indexRouter } from './routes/index.js'
 import { default as usersRouter } from './routes/users.js'
