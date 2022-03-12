@@ -1,5 +1,5 @@
 import { jest } from '@jest/globals'
-import { controllersForTest as peopleController } from '../../../routes/people/index.js'
+import { controllersForTest as peopleController } from '../../../../routes/people/index.js'
 
 describe('test controllers in routes/people.js', () => {
   describe('controller readAll', () => {
