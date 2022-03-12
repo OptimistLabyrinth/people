@@ -8,10 +8,10 @@ async function home(req, res) {
   res.send('respond with a resource')
 }
 
-const routerForTest = {
+const controllersForTest = {
   home,
 }
 
 export default router
 
-export { routerForTest }
+export { controllersForTest }

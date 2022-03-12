@@ -8,10 +8,10 @@ async function home(req, res) {
   res.render('index')
 }
 
-const routerForTest = {
+const controllersForTest = {
   home,
 }
 
 export default router
 
-export { routerForTest }
+export { controllersForTest }

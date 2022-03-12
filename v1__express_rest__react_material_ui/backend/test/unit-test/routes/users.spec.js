@@ -1,5 +1,5 @@
 import { jest } from '@jest/globals'
-import { routerForTest as usersRouter } from '../../../routes/users'
+import { controllersForTest as usersRouter } from '../../../routes/users'
 
 describe('test routes/users.js', () => {
   test('home : make sure res.send is called', async () => {
