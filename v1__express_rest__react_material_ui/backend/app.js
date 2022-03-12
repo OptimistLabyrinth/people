@@ -5,6 +5,7 @@ import logger from 'morgan'
 
 import { default as indexRouter } from './routes/index.js'
 import { default as usersRouter } from './routes/users.js'
+import { default as peopleRouter } from './routes/people.js'
 import dirName from './modules/dir-name.js'
 
 const app = express()
@@ -17,5 +18,6 @@ app.use(express.static(path.join(dirName(), 'public')))
 
 app.use('/', indexRouter)
 app.use('/users', usersRouter)
+app.use('/people', peopleRouter)
 
 export default app
