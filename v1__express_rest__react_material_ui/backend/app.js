@@ -5,7 +5,7 @@ import logger from 'morgan'
 
 import { default as indexRouter } from './routes/index.js'
 import { default as usersRouter } from './routes/users.js'
-import { default as peopleRouter } from './routes/people.js'
+import { default as peopleRouter } from './routes/people/index.js'
 import dirName from './modules/dir-name.js'
 
 const app = express()

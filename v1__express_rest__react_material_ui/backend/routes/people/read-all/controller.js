@@ -1,8 +1,3 @@
-import express from 'express'
-const router = express.Router()
-
-router.get('/', readAll)
-
 function readAll(req, res) {
   const examplePeople = [
     {
@@ -40,10 +35,4 @@ function readAll(req, res) {
   res.send({ msg: 'people router index', result: examplePeople })
 }
 
-const controllersForTest = {
-  readAll,
-}
-
-export default router
-
-export { controllersForTest }
+export default readAll
