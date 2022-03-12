@@ -1,6 +1,8 @@
+import ReadAllDto from './dto.js'
+
 function readAll(req, res) {
-  const examplePeople = [
-    {
+  const tmpPeople = [
+    new ReadAllDto({
       id: 1,
       name: 'John Deo',
       nickname: 'john1234',
@@ -9,8 +11,8 @@ function readAll(req, res) {
       age: 31,
       height: 177,
       weight: 68,
-    },
-    {
+    }),
+    new ReadAllDto({
       id: 2,
       name: 'Jane Doe',
       nickname: 'janeeeee',
@@ -19,8 +21,8 @@ function readAll(req, res) {
       age: 26,
       height: 164,
       weight: 50,
-    },
-    {
+    }),
+    new ReadAllDto({
       id: 3,
       name: 'Tom Hiddleston',
       nickname: 'tomExcvda',
@@ -29,9 +31,9 @@ function readAll(req, res) {
       age: 21,
       height: 180,
       weight: 76,
-    },
+    }),
   ]
-
+  const examplePeople = tmpPeople.map((person) => person.toJson())
   res.send({ msg: 'people router index', result: examplePeople })
 }
 
