@@ -31,17 +31,17 @@ const examplePeople = [
     age: 21,
     height: 180,
     weight: 76,
-  }
+  },
 ]
 
-router.get('/', home)
+router.get('/', readAll)
 
-function home(req, res) {
+function readAll(req, res) {
   res.send({ msg: 'people router index' })
 }
 
 const controllersForTest = {
-  home,
+  readAll,
 }
 
 export default router

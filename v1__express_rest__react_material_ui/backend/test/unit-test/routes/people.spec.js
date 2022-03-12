@@ -3,7 +3,7 @@ import { controllersForTest as peopleController } from '../../../routes/people.j
 
 describe('test router/people.js functions', () => {
   test('home : make sure the function exists', () => {
-    expect(peopleController.home).toBeDefined()
+    expect(peopleController.readAll).toBeDefined()
   })
 
   test('home : make sure res.send is called', async () => {
@@ -11,7 +11,7 @@ describe('test router/people.js functions', () => {
     const res = {
       send: jest.fn(() => {}),
     }
-    await peopleController.home(req, res)
+    await peopleController.readAll(req, res)
     expect(res.send).toHaveBeenCalled()
   })
 
@@ -21,7 +21,7 @@ describe('test router/people.js functions', () => {
     const res = {
       send: jest.fn(() => {}),
     }
-    await peopleController.home(req, res)
+    await peopleController.readAll(req, res)
     expect(res.send.mock.calls[0][0]).toHaveProperty('msg')
   })
 })
