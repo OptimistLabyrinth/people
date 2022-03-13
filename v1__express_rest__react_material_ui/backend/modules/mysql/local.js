@@ -17,6 +17,7 @@ class MysqlConnectionLocal {
     this.getConnection = this.getConnection.bind(this)
     this.releaseConnection = this.releaseConnection.bind(this)
   }
+
   async getConnection() {
     return await this.connectionPool.getConnection()
   }
