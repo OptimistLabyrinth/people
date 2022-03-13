@@ -1,0 +1,35 @@
+POST http://127.0.0.1:7100/cats
+Content-Type: application/json
+
+{
+  "name": "cutty kitty",
+  "age": 0,
+  "breed": "breed 123"
+}
+
+###
+
+GET http://127.0.0.1:7100/cats
+
+###
+
+GET http://127.0.0.1:7100/cats?limit=3
+
+###
+
+GET http://127.0.0.1:7100/cats/1
+
+###
+
+PUT http://127.0.0.1:7100/cats/1
+Content-Type: application/json
+
+{
+  "name": "abcde",
+  "age": 2,
+  "breed": "breed 456"
+}
+
+###
+
+DELETE http://127.0.0.1:7100/cats/1
