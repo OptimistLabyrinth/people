@@ -4,10 +4,10 @@ class ReadAllDto {
     this.name = name ?? null
     this.nickname = nickname ?? null
     this.country = country ?? null
-    this.birthday =
-      birthday === null || birthday === undefined
-        ? null
-        : this.dateToString(birthday)
+    this.birthday = birthday ?? null
+    if (this.birthday !== null) {
+      this.birthday = this.dateToString(birthday)
+    }
     this.age = age ?? null
     this.height = height ?? null
     this.weight = weight ?? null

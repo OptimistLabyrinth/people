@@ -31,6 +31,24 @@ describe('test class ReadAllDto', () => {
     expect(newData.birthday).toBeNull()
   })
 
+  test('constructor : if "birthday" is Date type, value if formatted YYYY-MM-DD', () => {
+    const newData = new ReadAllDto({ birthday: new Date('2020-12-22') })
+    expect(newData).toHaveProperty('birthday')
+    expect(newData.birthday).toBe('2020-12-22')
+  })
+
+  test('constructor : if month of "birthday" is less than 10, prepend 0', () => {
+    const newData = new ReadAllDto({ birthday: new Date('2020-2-22') })
+    expect(newData).toHaveProperty('birthday')
+    expect(newData.birthday).toBe('2020-02-22')
+  })
+
+  test('constructor : if date of "birthday" is less than 10, prepend 0', () => {
+    const newData = new ReadAllDto({ birthday: new Date('2020-12-2') })
+    expect(newData).toHaveProperty('birthday')
+    expect(newData.birthday).toBe('2020-12-02')
+  })
+
   test('constructor : if "age" is null or undefined, initialized null', () => {
     const newData = new ReadAllDto({})
     expect(newData).toHaveProperty('age')
