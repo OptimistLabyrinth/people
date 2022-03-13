@@ -7,8 +7,8 @@
     "start": "node ./bin/server.js",
     "dev": "nodemon ./bin/server.js",
     "dev:debug": "nodemon --inspect ./bin/server.js",
-    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --config ./jest.config.mjs",
-    "test:watch": "NODE_OPTIONS=--experimental-vm-modules npx jest --config ./jest.config.mjs --watch",
+    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --config ./jest.config.mjs --detectOpenHandles",
+    "test:watch": "NODE_OPTIONS=--experimental-vm-modules npx jest --config ./jest.config.mjs --detectOpenHandles --watch",
     "lint:check": "npx eslint .",
     "lint:fix": "npx eslint --fix ."
   },
