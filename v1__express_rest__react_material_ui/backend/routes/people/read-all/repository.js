@@ -21,9 +21,11 @@ class ReadAllRepository {
 
   async readAll() {
     const result = await this.conn.execute(this.statement)
-    const resultAsDto = result[0].map((eachRow) => {
+    const resultAsDto = result[0].map((eachRow, index) => {
       if (!this.validateEachRow(eachRow)) {
-        throw new Error('invalid row')
+        throw new Error(
+          `index: ${index}, ${JSON.stringify(eachRow)} is an invalid row`
+        )
       }
       return new ReadAllDto(eachRow)
     })
