@@ -13,10 +13,14 @@ class MysqlConnectionLocal {
       connectionLimit: parseInt(process.env.connectionLimitLocal ?? 1),
       queueLimit: parseInt(process.env.queueLimitLocal ?? 0),
     })
+
+    this.getConnection = this.getConnection.bind(this)
+    this.releaseConnection = this.releaseConnection.bind(this)
   }
   async getConnection() {
     return await this.connectionPool.getConnection()
   }
+
   releaseConnection(connection) {
     connection.release()
   }
