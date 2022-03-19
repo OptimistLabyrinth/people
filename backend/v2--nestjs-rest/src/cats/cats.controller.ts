@@ -13,6 +13,7 @@ import { CatsService } from './cats.service';
 import { CreateCatDto } from './dto/create-cat.dto';
 import { ListAllEntities } from './dto/list-all-entities.dto';
 import { UpdateCatDto } from './dto/update-cat.dto';
+import { Cat } from './interfaces/cat.interface';
 
 @Controller('cats')
 export class CatsController {
@@ -25,13 +26,13 @@ export class CatsController {
   }
 
   @Get()
-  findAll(@Query() query: ListAllEntities) {
+  findAll(@Query() query: ListAllEntities): Cat[] {
     console.log(`This action returns all cats (limit: ${query.limit} items)`);
     return this.catsService.findAll();
   }
 
   @Get(':id')
-  findOne(@Param('id', ParseIntPipe) id: number) {
+  findOne(@Param('id', ParseIntPipe) id: number): Cat {
     console.log({ 'param.id': id });
     console.log(`This action returns #${id} cat`);
     return this.catsService.findOne(id);
