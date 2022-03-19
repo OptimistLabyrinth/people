@@ -14,13 +14,14 @@ import { CreateCatDto } from './dto/create-cat.dto';
 import { ListAllEntities } from './dto/list-all-entities.dto';
 import { UpdateCatDto } from './dto/update-cat.dto';
 import { Cat } from './interfaces/cat.interface';
+import { RequestBodyValidationPipePipe } from './pipes/request-body-validation-pipe.pipe';
 
 @Controller('cats')
 export class CatsController {
   constructor(private catsService: CatsService) {}
 
   @Post()
-  create(@Body() createCatDto: CreateCatDto) {
+  create(@Body(RequestBodyValidationPipePipe) createCatDto: CreateCatDto) {
     console.log({ createCatDto: createCatDto });
     this.catsService.create(createCatDto);
   }
@@ -41,7 +42,7 @@ export class CatsController {
   @Put(':id')
   update(
     @Param('id', ParseIntPipe) id: number,
-    @Body() updateCatDto: UpdateCatDto,
+    @Body(RequestBodyValidationPipePipe) updateCatDto: UpdateCatDto,
   ) {
     console.log({ 'param.id': id, updateCatDto: updateCatDto });
     console.log(`This action updates a #${id} cat`);
