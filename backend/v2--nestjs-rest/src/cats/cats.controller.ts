@@ -8,7 +8,9 @@ import {
   Post,
   Put,
   Query,
+  UseGuards,
 } from '@nestjs/common';
+import { CatsGuard } from './cats.guard';
 import { CatsService } from './cats.service';
 import { CreateCatDto } from './dto/create-cat.dto';
 import { ListAllEntities } from './dto/list-all-entities.dto';
@@ -17,6 +19,7 @@ import { Cat } from './interfaces/cat.interface';
 import { RequestBodyValidationPipePipe } from './pipes/request-body-validation-pipe.pipe';
 
 @Controller('cats')
+@UseGuards(CatsGuard)
 export class CatsController {
   constructor(private catsService: CatsService) {}
 
