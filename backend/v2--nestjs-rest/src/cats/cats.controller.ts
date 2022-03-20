@@ -32,7 +32,7 @@ export class CatsController {
   @Get()
   findAll(@Query() query: ListAllEntities): Cat[] {
     console.log(`This action returns all cats (limit: ${query.limit} items)`);
-    return this.catsService.findAll();
+    return this.catsService.findAll(query);
   }
 
   @Get(':id')

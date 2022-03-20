@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { CreateCatDto } from './dto/create-cat.dto';
+import { ListAllEntities } from './dto/list-all-entities.dto';
 import { UpdateCatDto } from './dto/update-cat.dto';
 import { Cat } from './interfaces/cat.interface';
 
@@ -12,8 +13,8 @@ export class CatsService {
     this.cats.push({ ...cat, id: ++CatsService.lastId });
   }
 
-  findAll(): Cat[] {
-    return this.cats;
+  findAll(query: ListAllEntities): Cat[] {
+    return this.cats.slice(0, query.limit);
   }
 
   findOne(id: number): Cat {
